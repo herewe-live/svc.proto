@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package svc.biz.account;
+option go_package="./svc.biz.account;account";
+
+import "google/protobuf/empty.proto";
+
+service Account {
+    rpc InitDB(google.protobuf.Empty) returns (InitDBResp);
+};
+
+message InitDBResp {
+    bool result = 1;
+};

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package svc.biz.live;
+option go_package="./svc.biz.live;live";
+
+import "google/protobuf/empty.proto";
+
+service Live {
+    rpc InitDB(google.protobuf.Empty) returns (InitDBResp);
+};
+
+message InitDBResp {
+    bool result = 1;
+};
