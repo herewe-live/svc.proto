@@ -8,6 +8,11 @@
   
     - [Live](#svc-biz-live-Live)
   
+- [svc.biz.gift/gift.proto](#svc-biz-gift_gift-proto)
+    - [InitDBResp](#svc-biz-gift-InitDBResp)
+  
+    - [Gift](#svc-biz-gift-Gift)
+  
 - [svc.biz.account/account.proto](#svc-biz-account_account-proto)
     - [InitDBResp](#svc-biz-account-InitDBResp)
   
@@ -58,6 +63,47 @@
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | InitDB | [.google.protobuf.Empty](#google-protobuf-Empty) | [InitDBResp](#svc-biz-live-InitDBResp) |  |
+
+ 
+
+
+
+<a name="svc-biz-gift_gift-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## svc.biz.gift/gift.proto
+
+
+
+<a name="svc-biz-gift-InitDBResp"></a>
+
+### InitDBResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| result | [bool](#bool) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="svc-biz-gift-Gift"></a>
+
+### Gift
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| InitDB | [.google.protobuf.Empty](#google-protobuf-Empty) | [InitDBResp](#svc-biz-gift-InitDBResp) |  |
 
  
 

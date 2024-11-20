@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package svc.biz.gift;
+option go_package="./svc.biz.gift;gift";
+
+import "google/protobuf/empty.proto";
+
+service Gift {
+    rpc InitDB(google.protobuf.Empty) returns (InitDBResp);
+};
+
+message InitDBResp {
+    bool result = 1;
+};
