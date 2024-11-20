@@ -13,6 +13,11 @@
   
     - [Account](#svc-biz-account-Account)
   
+- [svc.biz.room/room.proto](#svc-biz-room_room-proto)
+    - [InitDBResp](#svc-biz-room-InitDBResp)
+  
+    - [Room](#svc-biz-room-Room)
+  
 - [Scalar Value Types](#scalar-value-types)
 
 
@@ -94,6 +99,47 @@
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | InitDB | [.google.protobuf.Empty](#google-protobuf-Empty) | [InitDBResp](#svc-biz-account-InitDBResp) |  |
+
+ 
+
+
+
+<a name="svc-biz-room_room-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## svc.biz.room/room.proto
+
+
+
+<a name="svc-biz-room-InitDBResp"></a>
+
+### InitDBResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| result | [bool](#bool) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="svc-biz-room-Room"></a>
+
+### Room
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| InitDB | [.google.protobuf.Empty](#google-protobuf-Empty) | [InitDBResp](#svc-biz-room-InitDBResp) |  |
 
  
 

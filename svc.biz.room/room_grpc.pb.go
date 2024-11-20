@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.28.3
-// source: svc.biz.account/account.proto
+// source: svc.biz.room/room.proto
 
-package account
+package room
 
 import (
 	context "context"
@@ -20,103 +20,103 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Account_InitDB_FullMethodName = "/svc.biz.account.Account/InitDB"
+	Room_InitDB_FullMethodName = "/svc.biz.room.Room/InitDB"
 )
 
-// AccountClient is the client API for Account service.
+// RoomClient is the client API for Room service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AccountClient interface {
+type RoomClient interface {
 	InitDB(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*InitDBResp, error)
 }
 
-type accountClient struct {
+type roomClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAccountClient(cc grpc.ClientConnInterface) AccountClient {
-	return &accountClient{cc}
+func NewRoomClient(cc grpc.ClientConnInterface) RoomClient {
+	return &roomClient{cc}
 }
 
-func (c *accountClient) InitDB(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*InitDBResp, error) {
+func (c *roomClient) InitDB(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*InitDBResp, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(InitDBResp)
-	err := c.cc.Invoke(ctx, Account_InitDB_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Room_InitDB_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AccountServer is the server API for Account service.
-// All implementations must embed UnimplementedAccountServer
+// RoomServer is the server API for Room service.
+// All implementations must embed UnimplementedRoomServer
 // for forward compatibility.
-type AccountServer interface {
+type RoomServer interface {
 	InitDB(context.Context, *emptypb.Empty) (*InitDBResp, error)
-	mustEmbedUnimplementedAccountServer()
+	mustEmbedUnimplementedRoomServer()
 }
 
-// UnimplementedAccountServer must be embedded to have
+// UnimplementedRoomServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAccountServer struct{}
+type UnimplementedRoomServer struct{}
 
-func (UnimplementedAccountServer) InitDB(context.Context, *emptypb.Empty) (*InitDBResp, error) {
+func (UnimplementedRoomServer) InitDB(context.Context, *emptypb.Empty) (*InitDBResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InitDB not implemented")
 }
-func (UnimplementedAccountServer) mustEmbedUnimplementedAccountServer() {}
-func (UnimplementedAccountServer) testEmbeddedByValue()                 {}
+func (UnimplementedRoomServer) mustEmbedUnimplementedRoomServer() {}
+func (UnimplementedRoomServer) testEmbeddedByValue()              {}
 
-// UnsafeAccountServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AccountServer will
+// UnsafeRoomServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RoomServer will
 // result in compilation errors.
-type UnsafeAccountServer interface {
-	mustEmbedUnimplementedAccountServer()
+type UnsafeRoomServer interface {
+	mustEmbedUnimplementedRoomServer()
 }
 
-func RegisterAccountServer(s grpc.ServiceRegistrar, srv AccountServer) {
-	// If the following call pancis, it indicates UnimplementedAccountServer was
+func RegisterRoomServer(s grpc.ServiceRegistrar, srv RoomServer) {
+	// If the following call pancis, it indicates UnimplementedRoomServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&Account_ServiceDesc, srv)
+	s.RegisterService(&Room_ServiceDesc, srv)
 }
 
-func _Account_InitDB_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Room_InitDB_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServer).InitDB(ctx, in)
+		return srv.(RoomServer).InitDB(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Account_InitDB_FullMethodName,
+		FullMethod: Room_InitDB_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServer).InitDB(ctx, req.(*emptypb.Empty))
+		return srv.(RoomServer).InitDB(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Account_ServiceDesc is the grpc.ServiceDesc for Account service.
+// Room_ServiceDesc is the grpc.ServiceDesc for Room service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Account_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "svc.biz.account.Account",
-	HandlerType: (*AccountServer)(nil),
+var Room_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "svc.biz.room.Room",
+	HandlerType: (*RoomServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "InitDB",
-			Handler:    _Account_InitDB_Handler,
+			Handler:    _Room_InitDB_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "svc.biz.account/account.proto",
+	Metadata: "svc.biz.room/room.proto",
 }

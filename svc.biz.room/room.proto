@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package svc.biz.room;
+option go_package="./svc.biz.room;room";
+
+import "google/protobuf/empty.proto";
+
+service Room {
+    rpc InitDB(google.protobuf.Empty) returns (InitDBResp);
+};
+
+message InitDBResp {
+    bool result = 1;
+};
